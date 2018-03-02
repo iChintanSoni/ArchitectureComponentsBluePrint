@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     tools:context="com.chintansoni.android.architecturecomponentsblueprint.view.activity.SplashActivity">
 
-    <include layout="@layout/layout_appbar_toolbar" />
-
     <include layout="@layout/content_splash" />
 
 </android.support.design.widget.CoordinatorLayout>

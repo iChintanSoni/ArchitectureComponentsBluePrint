@@ -36,6 +36,10 @@ class SplashRepository @Inject constructor(private var firstTimePreference: Firs
         return result
     }
 
+    fun setAsFirstTime() {
+        firstTimePreference.setFirstTimePreference()
+    }
+
     init {
         result.value = Resource.loading(null)
     }

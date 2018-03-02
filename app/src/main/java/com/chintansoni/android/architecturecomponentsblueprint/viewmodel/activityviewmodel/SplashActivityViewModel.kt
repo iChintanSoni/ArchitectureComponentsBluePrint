@@ -1,4 +1,4 @@
-package com.chintansoni.android.architecturecomponentsblueprint.viewmodel
+package com.chintansoni.android.architecturecomponentsblueprint.viewmodel.activityviewmodel
 
 import android.arch.lifecycle.LiveData
 import com.chintansoni.android.architecturecomponentsblueprint.base.BaseViewModel
@@ -9,7 +9,7 @@ import javax.inject.Inject
 /**
  * Created by chint on 2/18/2018.
  */
-class SplashViewModel() : BaseViewModel() {
+class SplashActivityViewModel() : BaseViewModel() {
 
     private lateinit var isFirstTime: LiveData<Resource<Boolean>>
 
@@ -23,5 +23,9 @@ class SplashViewModel() : BaseViewModel() {
     fun isFirstTime(): LiveData<Resource<Boolean>> {
         isFirstTime = splashRepository.asLiveData()
         return isFirstTime
+    }
+
+    fun setAsFirstTime() {
+        splashRepository.setAsFirstTime()
     }
 }

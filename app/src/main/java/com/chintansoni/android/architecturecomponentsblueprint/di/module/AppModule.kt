@@ -12,8 +12,9 @@ import javax.inject.Singleton
 /**
  * Created by chint on 2/21/2018.
  */
-@Module(includes = [(ViewModelModule::class)])
+@Module
 class AppModule {
+
     @Singleton
     @Provides
     fun provideApiService(): ApiService {

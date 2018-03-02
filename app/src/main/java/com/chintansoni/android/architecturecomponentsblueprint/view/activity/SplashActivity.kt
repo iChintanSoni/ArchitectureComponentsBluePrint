@@ -3,12 +3,12 @@ package com.chintansoni.android.architecturecomponentsblueprint.view.activity
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import com.chintansoni.android.architecturecomponentsblueprint.R
 import com.chintansoni.android.architecturecomponentsblueprint.base.BaseActivity
 import com.chintansoni.android.architecturecomponentsblueprint.model.Status
-import com.chintansoni.android.architecturecomponentsblueprint.model.preference.FirstTimePreference
 import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.KotlinViewModelFactory
-import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.SplashViewModel
+import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.activityviewmodel.SplashActivityViewModel
 import kotlinx.android.synthetic.main.content_splash.*
 import javax.inject.Inject
 
@@ -19,34 +19,45 @@ class SplashActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: KotlinViewModelFactory
 
-    private lateinit var splashViewModel: SplashViewModel
-
     @Inject
-    lateinit var firstTimePreference: FirstTimePreference
+    lateinit var splashActivityViewModel: SplashActivityViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.splashViewModel = getViewModel(viewModelFactory, SplashViewModel::class.java)
-
+        this.splashActivityViewModel = getViewModel(viewModelFactory, SplashActivityViewModel::class.java)
         listenForWait()
     }
 
     private fun listenForWait() {
-        splashViewModel.isFirstTime().observe(this, Observer {
+        splashActivityViewModel.isFirstTime().observe(this, Observer {
             if (it != null) {
                 if (it.status == Status.SUCCESS || it.status == Status.ERROR) {
                     if (it.data!!)
-                        btn_splash.visibility = View.VISIBLE
-//                    else
-//                        navigateToHome(btn_splash)
+                        showGetStartedButton()
+                    else
+                        navigateToHome()
                 }
             }
         })
     }
 
-    private fun navigateToHome(view: View) {
-        firstTimePreference.setFirstTimePreference()
-        launchActivity(HomeActivity.getActivityIntent(this))
+    private fun showGetStartedButton() {
+        val animationFade = AnimationUtils.makeInAnimation(this, true)
+        btn_splash.apply {
+            animation = animationFade
+            visibility = View.VISIBLE
+        }
+        btn_splash.animate()
+    }
+
+    fun onGetStartedClick(view: View) {
+        splashActivityViewModel.setAsFirstTime()
+        navigateToHome()
+    }
+
+    private fun navigateToHome() {
+        launchActivityFinishCurrent(HomeActivity.getActivityIntent(this))
     }
 }

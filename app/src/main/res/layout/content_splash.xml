@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.chintansoni.android.architecturecomponentsblueprint.view.activity.SplashActivity"
     tools:showIn="@layout/activity_splash">
 
@@ -27,9 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:onClick="onGetStartedClick"
         android:text="Get Started"
         android:visibility="gone"
-        android:onClick="navigateToHome"
         app:layout_constraintEnd_toEndOf="@+id/tv_splash"
         app:layout_constraintStart_toStartOf="@+id/tv_splash"
         app:layout_constraintTop_toBottomOf="@+id/tv_splash"

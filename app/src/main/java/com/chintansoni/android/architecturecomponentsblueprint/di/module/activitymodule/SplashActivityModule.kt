@@ -1,4 +1,4 @@
-package com.chintansoni.android.architecturecomponentsblueprint.di.module
+package com.chintansoni.android.architecturecomponentsblueprint.di.module.activitymodule
 
 import com.chintansoni.android.architecturecomponentsblueprint.view.activity.SplashActivity
 import dagger.Module
@@ -9,6 +9,6 @@ import dagger.android.ContributesAndroidInjector
  */
 @Module
 abstract class SplashActivityModule {
-    @ContributesAndroidInjector(modules = [(FragmentBuildersModule::class)])
+    @ContributesAndroidInjector
     internal abstract fun contributeSplashActivity(): SplashActivity
 }
