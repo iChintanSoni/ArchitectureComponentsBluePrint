@@ -1,0 +1,189 @@
+def versions = [:]
+versions.compilesdkversion                      = 27
+versions.buildtoolsversion                      = "27.0.3"
+versions.minsdkversion                          = 16
+versions.targetsdkversion                       = 27
+
+versions.versioncode                            = 1
+versions.versionname                            = "1.0"
+
+versions.jdk8                                   = JavaVersion.VERSION_1_8
+versions.appid                                  = "com.chintansoni.android.architecturecomponentsblueprint"
+ext.versions = versions
+
+ext.deps = [:]
+
+def version = [:]
+version.gradleplugin                            = "3.0.1"
+version.kotlinplugin                            = "1.2.30"
+version.ktx                                     = "0.2"
+
+version.support                                 = "27.1.0"
+version.googleplayservices                      = "11.8.0"
+version.firebase                                = "11.8.0"
+
+version.constraintlayout                        = "1.0.2"
+version.multidex                                = "1.0.1"
+version.databinding                             = "3.0.1"
+
+version.lifecycle                               = "1.1.0"
+version.viewmodel                               = "1.1.0"
+version.livedata                                = "1.1.0"
+version.room                                    = "1.0.0"
+version.paging                                  = "1.0.0-alpha6"
+
+version.testrunner                              = "1.0.1"
+version.espresso                                = "3.0.1"
+version.junit                                   = "4.12"
+
+version.dagger2                                 = "2.14.1"
+
+version.rxjava2                                 = "2.1.10"
+version.rxandroid2                              = "2.0.2"
+version.rxkotlin2                               = "2.2.0"
+
+version.retrofit2                               = "2.3.0"
+version.okhttp3                                 = "3.10.0"
+
+version.glide                                   = "4.6.1"
+version.easypermissions                         = "1.1.3"
+version.timber                                  = "4.6.1"
+version.javax                                   = "1.0"
+
+def deps = [:]
+
+def support = [:]
+support.appcompat                               = "com.android.support:appcompat-v7:$version.support"
+support.recyclerview                            = "com.android.support:recyclerview-v7:$version.support"
+support.cardview                                = "com.android.support:cardview-v7:$version.support"
+support.design                                  = "com.android.support:design:$version.support"
+support.v4                                      = "com.android.support:support-v4:$version.support"
+support.multidex                                = "com.android.support:multidex:$version.multidex"
+support.databinding                             = "com.android.databinding:compiler:$version.databinding"
+deps.support = support
+
+def googleplayservices = [:]
+googleplayservices.opensourcelicenses           = "com.google.android.gms:play-services-oss-licenses:$version.googleplayservices"
+deps.googleplayservices = googleplayservices
+
+def firebase = [:]
+deps.firebase = firebase
+
+def constraintlayout = [:]
+constraintlayout.core                           = "com.android.support.constraint:constraint-layout:$version.constraintlayout"
+deps.constraintlayout = constraintlayout
+
+def lifecycle = [:]
+deps.runtime                                    = "android.arch.lifecycle:runtime:$version.lifecycle"
+lifecycle.extensions                            = "android.arch.lifecycle:extensions:$version.lifecycle"
+lifecycle.java8                                 = "android.arch.lifecycle:common-java8:$version.lifecycle"
+lifecycle.compiler                              = "android.arch.lifecycle:compiler:$version.lifecycle"
+deps.lifecycle = lifecycle
+
+def viewmodel = [:]
+viewmodel.extensions                            = "android.arch.lifecycle:extensions:$version.viewmodel"
+viewmodel.core                                  = "android.arch.lifecycle:viewmodel:$version.viewmodel"
+viewmodel.compiler                              = "android.arch.lifecycle:compiler:$version.viewmodel"
+deps.viewmodel = viewmodel
+
+def livedata = [:]
+livedata.extensions                             = "android.arch.lifecycle:extensions:$version.livedata"
+livedata.core                                   = "android.arch.lifecycle:livedata:$version.livedata"
+livedata.compiler                               = "android.arch.lifecycle:compiler:$version.livedata"
+livedata.reactivestreams                        = "android.arch.lifecycle:reactivestreams:$version.livedata"
+livedata.testing                                = "android.arch.core:core-testing:$version.livedata"
+deps.livedata = livedata
+
+def room = [:]
+room.runtime                                    = "android.arch.persistence.room:runtime:$version.room"
+room.compiler                                   = "android.arch.persistence.room:compiler:$version.room"
+room.rxjava2                                    = "android.arch.persistence.room:rxjava2:$version.room"
+room.testing                                    = "android.arch.persistence.room:testing:$version.room"
+deps.room = room
+
+def paging = [:]
+paging.core                                     = "android.arch.paging:runtime:$version.paging"
+deps.paging = paging
+
+def testrunner = [:]
+testrunner.runner                               = "com.android.support.test:runner:$version.testrunner"
+testrunner.rules                                = "com.android.support.test:rules:$version.testrunner"
+deps.testrunner = testrunner
+
+def espresso = [:]
+espresso.core                                   = "com.android.support.test.espresso:espresso-core:$version.espresso"
+espresso.contrib                                = "com.android.support.test.espresso:espresso-contrib:$version.espresso"
+espresso.intents                                = "com.android.support.test.espresso:espresso-intents:$version.espresso"
+espresso.accessibility                          = "com.android.support.test.espresso:espresso-accessibility:$version.espresso"
+espresso.web                                    = "com.android.support.test.espresso:espresso-web:$version.espresso"
+espresso.idlingconcurrent                       = "com.android.support.test.espresso.idling:idling-concurrent:$version.espresso"
+espresso.idlingresources                        = "com.android.support.test.espresso:espresso-idling-resource:$version.espresso"
+deps.espresso = espresso
+
+def junit = [:]
+junit.core                                      = "junit:junit:$version.junit"
+deps.junit = junit
+
+def dagger2 = [:]
+dagger2.runtime                                 = "com.google.dagger:dagger:$version.dagger2"
+dagger2.compiler                                = "com.google.dagger:dagger-compiler:$version.dagger2"
+dagger2.android                                 = "com.google.dagger:dagger-android:$version.dagger2"
+dagger2.androidsupport                          = "com.google.dagger:dagger-android-support:$version.dagger2"
+dagger2.androidsupportcompiler                  = "com.google.dagger:dagger-android-processor:$version.dagger2"
+deps.dagger2 = dagger2
+
+def rxjava2 = [:]
+rxjava2.core                                    = "io.reactivex.rxjava2:rxjava:$version.rxjava2"
+rxjava2.kotlin                                  = "io.reactivex.rxjava2:rxkotlin:$version.rxkotlin2"
+deps.rxjava2 = rxjava2
+
+def rxandroid2 = [:]
+rxandroid2.core                                 = "io.reactivex.rxjava2:rxandroid:$version.rxandroid2"
+deps.rxandroid2 = rxandroid2
+
+def retrofit2 = [:]
+retrofit2.runtime                               = "com.squareup.retrofit2:retrofit:$version.retrofit2"
+retrofit2.gson                                  = "com.squareup.retrofit2:converter-gson:$version.retrofit2"
+retrofit2.mock                                  = "com.squareup.retrofit2:retrofit-mock:$version.retrofit2"
+deps.retrofit2 = retrofit2
+
+def okhttp3 = [:]
+okhttp3.core                                    = "com.squareup.okhttp3:okhttp:$version.okhttp3"
+okhttp3.mockwebserver                           = "com.squareup.okhttp3:mockwebserver:$version.okhttp3"
+okhttp3.logginginterceptor                      = "com.squareup.okhttp3:logging-interceptor:$version.okhttp3"
+deps.okhttp3 = okhttp3
+
+def glide = [:]
+glide.core                                      = "com.github.bumptech.glide:glide:$version.glide"
+deps.glide = glide
+
+def easypermissions = [:]
+easypermissions.core                            = "pub.devrel:easypermissions:$version.easypermissions"
+deps.easypermissions = easypermissions
+
+def timber = [:]
+timber.core                                     = "com.jakewharton.timber:timber:$version.timber"
+deps.timber = timber
+
+def javax = [:]
+javax.core                                      = "javax.annotation:jsr250-api:$version.javax"
+deps.javax = javax
+
+def gradleplugin = [:]
+gradleplugin.core                               = "com.android.tools.build:gradle:$version.gradleplugin"
+deps.gradleplugin = gradleplugin
+
+def kotlinplugin = [:]
+kotlinplugin.stdlib                             = "org.jetbrains.kotlin:kotlin-stdlib-jre8:$version.kotlinplugin"
+kotlinplugin.test                               = "org.jetbrains.kotlin:kotlin-test-junit:$version.kotlinplugin"
+kotlinplugin.plugin                             = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version.kotlinplugin"
+kotlinplugin.ktx                                = "androidx.core:core-ktx:$version.ktx"
+deps.kotlinplugin = kotlinplugin
+ext.deps = deps
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+ext.addRepos = this.&addRepos
