@@ -85,6 +85,7 @@ dependencies {
 
     //Google Play Services
     implementation deps.googleplayservices.opensourcelicenses
+    implementation deps.easypermissions.core
 
     // Architecture Components
     //LifeCycle & ViewModel
