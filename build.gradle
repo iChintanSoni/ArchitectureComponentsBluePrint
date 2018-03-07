@@ -6,6 +6,8 @@ buildscript {
 
     dependencies {
         classpath deps.gradleplugin.core
+        classpath deps.gradleplugin.opensourcelicenses
+        classpath deps.gradleplugin.googleservices
         classpath deps.kotlinplugin.plugin
 
         // NOTE: Do not place your application dependencies here; they belong
