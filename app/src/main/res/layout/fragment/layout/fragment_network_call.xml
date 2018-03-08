@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="NetworkCallFragmentDataBinding">
+
+        <variable
+            name="viewModel"
+            type="com.chintansoni.android.architecturecomponentsblueprint.viewmodel.fragmentviewmodel.NetworkCallFragmentViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_network_call"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_network_call" />
+
+        <include
+            layout="@layout/layout_loading"
+            android:visibility="@{viewModel.liveDataUsers.Resource.Status == Status.Loading ? View.VISIBLE : View.GONE}" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -13,9 +13,8 @@ import javax.inject.Singleton
 class HomeRepository @Inject constructor(private var firstTimePreference: FirstTimePreference) {
 
     private val result = MediatorLiveData<Resource<Boolean>>()
-    private val delayTimeInMS = 3
 
     init {
-        result.value = Resource.loading(null)
+        result.value = Resource.loading()
     }
 }

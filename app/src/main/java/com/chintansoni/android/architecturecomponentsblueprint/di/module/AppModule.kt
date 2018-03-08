@@ -1,5 +1,6 @@
 package com.chintansoni.android.architecturecomponentsblueprint.di.module
 
+import com.chintansoni.android.architecturecomponentsblueprint.BuildConfig
 import com.chintansoni.android.architecturecomponentsblueprint.model.api.ApiService
 import com.chintansoni.android.architecturecomponentsblueprint.util.LiveDataCallAdapterFactory
 import dagger.Module
@@ -7,7 +8,6 @@ import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
-
 
 /**
  * Created by chint on 2/21/2018.
@@ -19,7 +19,7 @@ class AppModule {
     @Provides
     fun provideApiService(): ApiService {
         return Retrofit.Builder()
-                .baseUrl("https://randomuser.me/")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory())
                 .build()

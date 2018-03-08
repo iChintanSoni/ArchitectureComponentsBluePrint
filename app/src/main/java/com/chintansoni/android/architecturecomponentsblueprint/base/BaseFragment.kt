@@ -1,5 +1,6 @@
 package com.chintansoni.android.architecturecomponentsblueprint.base
 
+import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
@@ -9,13 +10,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.chintansoni.android.architecturecomponentsblueprint.di.Injectable
+import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.KotlinViewModelFactory
 
 
 /**
  * Created by yashsoni on 02/03/18.
  */
-abstract class BaseFragment<FragmentDatabinding : ViewDataBinding> : Fragment(), Injectable {
-    protected lateinit var binding: FragmentDatabinding
+abstract class BaseFragment<FragmentDataBinding : ViewDataBinding> : Fragment(), Injectable {
+
+    protected lateinit var binding: FragmentDataBinding
 
     abstract fun getLayoutResource(): Int
 
@@ -23,5 +26,9 @@ abstract class BaseFragment<FragmentDatabinding : ViewDataBinding> : Fragment(),
     override fun onCreateView(inflater: LayoutInflater, @Nullable container: ViewGroup?, @Nullable savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, getLayoutResource(), container, false)
         return binding.root
+    }
+
+    protected fun <T : BaseViewModel> getViewModel(viewModelClass: Class<T>, kotlinViewModelFactory: KotlinViewModelFactory): T {
+        return ViewModelProviders.of(this, kotlinViewModelFactory).get(viewModelClass)
     }
 }

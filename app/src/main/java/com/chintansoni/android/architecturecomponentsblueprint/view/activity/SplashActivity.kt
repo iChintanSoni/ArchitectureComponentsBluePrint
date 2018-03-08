@@ -7,7 +7,6 @@ import android.view.animation.AnimationUtils
 import com.chintansoni.android.architecturecomponentsblueprint.R
 import com.chintansoni.android.architecturecomponentsblueprint.base.BaseActivity
 import com.chintansoni.android.architecturecomponentsblueprint.model.Status
-import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.KotlinViewModelFactory
 import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.activityviewmodel.SplashActivityViewModel
 import kotlinx.android.synthetic.main.content_splash.*
 import javax.inject.Inject
@@ -17,16 +16,12 @@ class SplashActivity : BaseActivity() {
     override fun getLayoutResource(): Int = R.layout.activity_splash
 
     @Inject
-    lateinit var viewModelFactory: KotlinViewModelFactory
-
-    @Inject
     lateinit var splashActivityViewModel: SplashActivityViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.splashActivityViewModel = getViewModel(viewModelFactory, SplashActivityViewModel::class.java)
+        this.splashActivityViewModel = getViewModel(SplashActivityViewModel::class.java)
         listenForWait()
     }
 

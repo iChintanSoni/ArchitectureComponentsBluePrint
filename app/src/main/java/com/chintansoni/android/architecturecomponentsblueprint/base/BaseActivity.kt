@@ -2,12 +2,11 @@ package com.chintansoni.android.architecturecomponentsblueprint.base
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.chintansoni.android.architecturecomponentsblueprint.util.ActivityNavigatorUtils
-import com.chintansoni.android.architecturecomponentsblueprint.util.SharedPrefsUtils
+import com.chintansoni.android.architecturecomponentsblueprint.util.FragmentNavigationUtils
 import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.KotlinViewModelFactory
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -21,6 +20,9 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
+    @Inject
+    lateinit var viewModelFactory: KotlinViewModelFactory
+
     override fun supportFragmentInjector(): DispatchingAndroidInjector<Fragment> {
         return dispatchingAndroidInjector
     }
@@ -32,16 +34,8 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     abstract fun getLayoutResource(): Int
 
-    protected fun <T : BaseViewModel> getViewModel(viewModelFactory: KotlinViewModelFactory, viewModelClass: Class<T>): T {
+    protected fun <T : BaseViewModel> getViewModel(viewModelClass: Class<T>): T {
         return ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
-    }
-
-    protected fun registerPreferenceListener(onSharedPreferenceChangeListener: SharedPreferences.OnSharedPreferenceChangeListener) {
-        SharedPrefsUtils.registerObserver(this, onSharedPreferenceChangeListener)
-    }
-
-    protected fun unRegisterPreferenceListener(onSharedPreferenceChangeListener: SharedPreferences.OnSharedPreferenceChangeListener) {
-        SharedPrefsUtils.unRegisterObserver(this, onSharedPreferenceChangeListener)
     }
 
     fun launchActivityFinishCurrent(intent: Intent) {
@@ -54,5 +48,21 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     fun launchActivityWithRequestCode(intent: Intent, requestCode: Int) {
         ActivityNavigatorUtils.launchActivity(this, intent, requestCode)
+    }
+
+    fun addFragment(fragment: Fragment, containerId: Int) {
+        FragmentNavigationUtils.addFragment(this, fragment, containerId)
+    }
+
+    fun addFragment(fragment: Fragment, containerId: Int, shouldBeAddedToBackStack: Boolean) {
+        FragmentNavigationUtils.addFragment(this, fragment, containerId, shouldBeAddedToBackStack)
+    }
+
+    fun replaceFragment(fragment: Fragment, containerId: Int) {
+        FragmentNavigationUtils.replaceFragment(this, fragment, containerId)
+    }
+
+    fun replaceFragment(fragment: Fragment, containerId: Int, shouldBeAddedToBackStack: Boolean) {
+        FragmentNavigationUtils.replaceFragment(this, fragment, containerId, shouldBeAddedToBackStack)
     }
 }

@@ -26,7 +26,7 @@ class SplashRepository @Inject constructor(private var firstTimePreference: Firs
                     result.value = Resource.success(firstTimePreference.isFirstTimePreference())
                 })
                 .doOnError({
-                    result.value = Resource.error("Issue with observable", firstTimePreference.isFirstTimePreference())
+                    result.value = Resource.error(Exception("Issue with observable"), firstTimePreference.isFirstTimePreference())
                 })
                 .subscribe()
     }
@@ -41,6 +41,6 @@ class SplashRepository @Inject constructor(private var firstTimePreference: Firs
     }
 
     init {
-        result.value = Resource.loading(null)
+        result.value = Resource.loading()
     }
 }

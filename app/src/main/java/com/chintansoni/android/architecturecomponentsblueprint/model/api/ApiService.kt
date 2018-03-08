@@ -1,6 +1,7 @@
 package com.chintansoni.android.architecturecomponentsblueprint.model.api
 
 import android.arch.lifecycle.LiveData
+import com.chintansoni.android.architecturecomponentsblueprint.model.Resource
 import com.chintansoni.android.architecturecomponentsblueprint.model.api.getusers.response.RandomUserResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,6 +13,6 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("api/")
-    fun getUser(@Query("results") sort: String): LiveData<ApiResponse<RandomUserResponse>>
+    fun getUser(@Query("results") results: String): LiveData<Resource<ApiResponse<RandomUserResponse>>>
 
 }

@@ -39,6 +39,9 @@ android {
         }
     }
     buildTypes {
+        buildTypes.each {
+            it.buildConfigField("String", "BASE_URL", '"https://randomuser.me/"')
+        }
         release {
             minifyEnabled true
             shrinkResources true
