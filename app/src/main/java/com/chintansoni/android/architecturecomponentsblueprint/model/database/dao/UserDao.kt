@@ -19,6 +19,6 @@ interface UserDao {
     @Insert(onConflict = REPLACE)
     fun insert(user: User)
 
-    @Query("DELETE * FROM user")
+    @Query("DELETE FROM user")
     fun deleteAllUserData()
 }

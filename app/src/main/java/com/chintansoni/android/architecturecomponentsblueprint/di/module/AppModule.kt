@@ -1,6 +1,9 @@
 package com.chintansoni.android.architecturecomponentsblueprint.di.module
 
+import android.app.Application
 import com.chintansoni.android.architecturecomponentsblueprint.model.api.ApiService
+import com.chintansoni.android.architecturecomponentsblueprint.model.database.UserDatabase
+import com.chintansoni.android.architecturecomponentsblueprint.model.database.dao.UserDao
 import com.chintansoni.android.architecturecomponentsblueprint.util.LiveDataCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -26,21 +29,11 @@ class AppModule {
                 .create(ApiService::class.java)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideDb(app: Application): GithubDb {
-//        return Room.databaseBuilder(app, GithubDb::class.java!!, "github.db").build()
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideUserDao(db: GithubDb): UserDao {
-//        return db.userDao()
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideRepoDao(db: GithubDb): RepoDao {
-//        return db.repoDao()
-//    }
+    @Singleton
+    @Provides
+    fun provideUserDatabase(app: Application): UserDatabase = UserDatabase.getInstance(app)!!
+
+    @Singleton
+    @Provides
+    fun provideUserDao(database: UserDatabase): UserDao = database.userDao()
 }

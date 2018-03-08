@@ -10,7 +10,8 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "user")
 data class User(@PrimaryKey(autoGenerate = true) var id: Long?,
                 @ColumnInfo(name = "name") var name: String,
-                @ColumnInfo(name = "email") var email: String
+                @ColumnInfo(name = "email") var email: String,
+                @ColumnInfo(name = "picture") var picture: String
 ) {
-    constructor() : this(null, "", "")
+    constructor() : this(null, "", "", "")
 }
