@@ -15,6 +15,8 @@ ext.deps = [:]
 
 def version = [:]
 version.gradleplugin                            = "3.0.1"
+version.gradlepluginopensourcelicenses          = "0.9.1"
+version.gradleplugingoogleservices              = "3.2.0"
 version.kotlinplugin                            = "1.2.30"
 version.ktx                                     = "0.2"
 
@@ -171,6 +173,8 @@ deps.javax = javax
 
 def gradleplugin = [:]
 gradleplugin.core                               = "com.android.tools.build:gradle:$version.gradleplugin"
+gradleplugin.opensourcelicenses                 = "com.google.gms:oss-licenses:$version.gradlepluginopensourcelicenses"
+gradleplugin.googleservices                     = "com.google.gms:google-services:$version.gradleplugingoogleservices"
 deps.gradleplugin = gradleplugin
 
 def kotlinplugin = [:]
