@@ -4,9 +4,7 @@ import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.chintansoni.android.architecturecomponentsblueprint.R
 import com.chintansoni.android.architecturecomponentsblueprint.base.BaseFragment
 import com.chintansoni.android.architecturecomponentsblueprint.databinding.NetworkCallFragmentDataBinding
@@ -40,11 +38,11 @@ class NetworkCallFragment : BaseFragment<NetworkCallFragmentDataBinding>() {
         retainInstance = true
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         // Initializing ViewModel
         networkCallFragmentViewModel = getViewModel(NetworkCallFragmentViewModel::class.java, viewModelFactory)
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun getLayoutResource(): Int {

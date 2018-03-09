@@ -1,7 +1,7 @@
 package com.chintansoni.android.architecturecomponentsblueprint.util
 
 import android.arch.lifecycle.LiveData
-import com.chintansoni.android.architecturecomponentsblueprint.model.api.ApiResponse
+import com.chintansoni.android.architecturecomponentsblueprint.model.Resource
 import com.google.gson.internal.`$Gson$Types`.getRawType
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
@@ -19,7 +19,8 @@ class LiveDataCallAdapterFactory : CallAdapter.Factory() {
         }
         val observableType = getParameterUpperBound(0, returnType as ParameterizedType)
         val rawObservableType = getRawType(observableType)
-        if (rawObservableType != ApiResponse::class.java) {
+
+        if (rawObservableType != Resource::class.java) {
             throw IllegalArgumentException("type must be a resource")
         }
         if (observableType !is ParameterizedType) {
