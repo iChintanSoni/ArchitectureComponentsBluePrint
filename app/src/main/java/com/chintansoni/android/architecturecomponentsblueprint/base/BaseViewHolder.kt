@@ -7,11 +7,11 @@ import com.chintansoni.android.architecturecomponentsblueprint.BR
 /**
  * Created by chint on 3/9/2018.
  */
-abstract class BaseViewHolder<in VIEW>(private var binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
+abstract class BaseViewHolder<in VIEW>(internal var binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
     private var view: VIEW? = null
 
-    private lateinit var model: Any
+    internal lateinit var model: Any
 
     fun bind(view: VIEW?, obj: Any? = null) {
         binding.setVariable(BR.view, view)
@@ -20,5 +20,8 @@ abstract class BaseViewHolder<in VIEW>(private var binding: ViewDataBinding) : R
             binding.setVariable(BR.model, obj)
         }
         binding.executePendingBindings()
+        onBind()
     }
+
+    abstract fun onBind()
 }

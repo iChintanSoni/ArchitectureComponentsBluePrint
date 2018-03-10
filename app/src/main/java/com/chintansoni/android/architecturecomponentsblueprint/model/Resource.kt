@@ -21,4 +21,8 @@ class Resource<out T>(val status: Status, val data: T?, val exception: Exception
             return Resource(Status.LOADING, null, null)
         }
     }
+
+    override fun toString(): String {
+        return "Resource(status=$status, data=$data, exception=$exception)"
+    }
 }

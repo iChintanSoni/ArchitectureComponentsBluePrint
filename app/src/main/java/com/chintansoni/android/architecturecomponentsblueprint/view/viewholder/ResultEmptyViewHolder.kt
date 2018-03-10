@@ -8,6 +8,9 @@ import com.chintansoni.android.architecturecomponentsblueprint.view.fragment.Net
  * Created by chintan.soni on 10/03/18.
  */
 class ResultEmptyViewHolder(binding: ViewDataBinding) : BaseViewHolder<NetworkCallFragment>(binding) {
+    override fun onBind() {
+
+    }
 
 
 }

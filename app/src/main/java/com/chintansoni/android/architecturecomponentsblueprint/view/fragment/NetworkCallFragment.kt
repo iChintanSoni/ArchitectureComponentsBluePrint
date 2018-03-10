@@ -55,17 +55,19 @@ class NetworkCallFragment : BaseFragment<NetworkCallFragmentDataBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initializeRecyclerView()
+        observeData()
+    }
+
+    private fun observeData() {
         networkCallFragmentViewModel.getLiveDataUsers().observe(this, Observer {
-            if (it != null) {
-                binding.loading = it.status == Status.LOADING
-                if (it.status == Status.SUCCESS) {
-                    randomUserAdapter.setItems(it.data!!.body!!.results!!)
-                }
+            binding.loading = it?.status == Status.LOADING
+            if (it?.status == Status.SUCCESS) {
+                randomUserAdapter.setItems(it.data!!.body!!.results!!)
+            } else {
+                randomUserAdapter.clearItems()
             }
         })
-
-
-        initializeRecyclerView()
     }
 
     private fun initializeRecyclerView() {

@@ -10,7 +10,6 @@ import retrofit2.Response
 import java.lang.Exception
 import java.lang.reflect.Type
 
-
 /**
  * Created by chint on 2/21/2018.
  */

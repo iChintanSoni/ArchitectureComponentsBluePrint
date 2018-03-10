@@ -23,6 +23,7 @@ class ApiResponse<T> {
         code = response.code()
         if (response.isSuccessful) {
             body = response.body()
+            Timber.i(response.body().toString())
             errorMessage = null
         } else {
             var message: String? = null
@@ -45,4 +46,9 @@ class ApiResponse<T> {
     fun isSuccessful(): Boolean {
         return code in 200..299
     }
+
+    override fun toString(): String {
+        return "ApiResponse(code=$code, body=$body, errorMessage=$errorMessage)"
+    }
+
 }
