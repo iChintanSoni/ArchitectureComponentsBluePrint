@@ -7,22 +7,18 @@ import com.chintansoni.android.architecturecomponentsblueprint.BR
 /**
  * Created by chint on 3/9/2018.
  */
-abstract class BaseViewHolder(var binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
+abstract class BaseViewHolder<in VIEW>(private var binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var viewModel: Any
+    private var view: VIEW? = null
+
     private lateinit var model: Any
 
-    @JvmOverloads
-    fun bind(position: Int, viewModel: Any, obj: Any? = null) {
-        this.viewModel = viewModel
-        binding.setVariable(BR.viewModel, viewModel)
+    fun bind(view: VIEW?, obj: Any? = null) {
+        binding.setVariable(BR.view, view)
         if (obj != null) {
             this.model = obj
-//            binding.setVariable(BR.model, obj)
+            binding.setVariable(BR.model, obj)
         }
         binding.executePendingBindings()
-        onBind(position, viewModel, obj)
     }
-
-    abstract fun onBind(position: Int, viewModel: Any, obj: Any?)
 }

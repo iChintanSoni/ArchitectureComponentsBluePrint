@@ -179,6 +179,7 @@ kotlinplugin.test                               = "org.jetbrains.kotlin:kotlin-t
 kotlinplugin.plugin                             = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version.kotlinplugin"
 kotlinplugin.ktx                                = "androidx.core:core-ktx:$version.ktx"
 deps.kotlinplugin = kotlinplugin
+
 ext.deps = deps
 
 def addRepos(RepositoryHandler handler) {

@@ -6,8 +6,8 @@
     <data class="NetworkCallFragmentDataBinding">
 
         <variable
-            name="viewModel"
-            type="com.chintansoni.android.architecturecomponentsblueprint.viewmodel.fragmentviewmodel.NetworkCallFragmentViewModel" />
+            name="loading"
+            type="boolean" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -19,11 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_item_network_call" />
+            tools:listitem="@layout/list_item_network_call_model" />
 
         <include
             layout="@layout/layout_loading"
-            android:visibility="@{viewModel.liveDataUsers.Resource.Status == Status.Loading ? View.VISIBLE : View.GONE}" />
+            android:visibility="@{loading == Status.Loading ? View.VISIBLE : View.GONE}" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -52,20 +52,6 @@ android {
             shrinkResources false
         }
     }
-    sourceSets {
-        main {
-            manifest.srcFile 'src/main/AndroidManifest.xml'
-            java.srcDirs += ['src/main/kotlin', 'src/main/kapt']
-            assets.srcDirs = ['src/main/assets']
-            res.srcDirs =
-                    [
-                            'src/main/res/layout/activity',
-                            'src/main/res/layout/fragment',
-                            'src/main/res/layout/item',
-                            'src/main/res'
-                    ]
-        }
-    }
 }
 
 dependencies {
@@ -133,4 +119,7 @@ dependencies {
 
     // For using Java Annotations
     compileOnly deps.javax.core
+
+    // Glide
+    implementation deps.glide.core
 }

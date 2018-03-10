@@ -11,12 +11,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.chintansoni.android.architecturecomponentsblueprint.di.Injectable
 import com.chintansoni.android.architecturecomponentsblueprint.viewmodel.KotlinViewModelFactory
+import javax.inject.Inject
 
 
 /**
  * Created by yashsoni on 02/03/18.
  */
 abstract class BaseFragment<FragmentDataBinding : ViewDataBinding> : Fragment(), Injectable {
+
+    @Inject
+    lateinit var viewModelFactory: KotlinViewModelFactory
 
     protected lateinit var binding: FragmentDataBinding
 

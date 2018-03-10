@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.chintansoni.android.architecturecomponentsblueprint.model.api.getusers.response.ResultsItem" />
+
+        <variable
+            name="view"
+            type="com.chintansoni.android.architecturecomponentsblueprint.view.fragment.NetworkCallFragment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_list_item_network_call"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
+            app:image_url="@{model.picture.thumbnail}"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_list_item_network_call"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{model.name.first}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_list_item_network_call"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_list_item_network_call"
+            app:layout_constraintTop_toTopOf="@+id/iv_list_item_network_call"
+            tools:text="@tools:sample/full_names" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
