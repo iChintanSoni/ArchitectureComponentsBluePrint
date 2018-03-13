@@ -1,4 +1,4 @@
-# AndroidComponentsBluePrint
+# ArchitectureComponentsBluePrint
 This is a sample app that is developed to showcase MVVM architecture for Android with
 Repository pattern and Offline-First strategy.
 
