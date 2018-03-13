@@ -10,7 +10,7 @@ Introduction
 ---
 ### Functionality
 The app is structured with best practices and guidelines which showcases use of:
-* Android Framework with Java + Kotlin
+* Android Framework with Kotlin
 * Repository pattern with offline-first strategy
 * MVVM architectural pattern
 * Android Architecture Components
