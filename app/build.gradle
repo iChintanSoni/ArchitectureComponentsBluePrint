@@ -43,11 +43,16 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguard_list.each { pro_guard ->
+                proguardFile pro_guard
+            }
         }
         debug {
             minifyEnabled false
             shrinkResources false
+            proguard_list.each { pro_guard ->
+                proguardFile pro_guard
+            }
         }
     }
     sourceSets {

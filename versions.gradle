@@ -185,6 +185,25 @@ kotlinplugin.ktx                                = "androidx.core:core-ktx:$versi
 deps.kotlinplugin = kotlinplugin
 ext.deps = deps
 
+def proguard_list = [
+        "$project.rootDir/settings/proguard/proguard-architecture-components.pro",
+        "$project.rootDir/settings/proguard/proguard-constraintlayout.pro",
+        "$project.rootDir/settings/proguard/proguard-crashlytics-2.pro",
+        "$project.rootDir/settings/proguard/proguard-glide.pro",
+        "$project.rootDir/settings/proguard/proguard-google-play-services.pro",
+        "$project.rootDir/settings/proguard/proguard-gson.pro",
+        "$project.rootDir/settings/proguard/proguard-project.pro",
+        "$project.rootDir/settings/proguard/proguard-rxjava-rxandroid.pro",
+        "$project.rootDir/settings/proguard/proguard-square-dagger.pro",
+        "$project.rootDir/settings/proguard/proguard-square-okhttp3.pro",
+        "$project.rootDir/settings/proguard/proguard-square-retrofit.pro",
+        "$project.rootDir/settings/proguard/proguard-support-design.pro",
+        "$project.rootDir/settings/proguard/proguard-support-design.pro",
+        "$project.rootDir/settings/proguard/proguard-support-v4.pro",
+        "$project.rootDir/settings/proguard/proguard-support-v7-appcompat.pro"
+]
+ext.proguard_list = proguard_list
+
 def addRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
