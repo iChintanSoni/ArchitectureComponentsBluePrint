@@ -40,13 +40,11 @@ You can open the project in Android studio and press run.
 * [Timber](https://github.com/JakeWharton/timber)
 * [EasyPermissions](https://github.com/googlesamples/easypermissions)
 
-<!-- Contributing
+Contributing
 ---
 You are most welcome to contribute to this project!
 
-Please have a look at pull request template provided below, before contributing and proposing a change.
-
-[Contributing guidelines]() -->
+Please have a look at [Contributing Guidelines](https://github.com/chitansoni202/ArchitectureComponentsBluePrint/blob/master/CONTRIBUTING.md), before contributing and proposing a change.
 
 ### Pull Request
 To generate a pull request, please consider following [Pull Request Template](https://github.com/chintansoni202/ArchitectureComponentsBluePrint/blob/master/PULL_REQUEST_TEMPLATE.md).
